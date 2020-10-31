@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %} {% static 'core/ ' %}
+{% block contenido %}
+
+<link rel="stylesheet" href="{% static 'core\css\bootstrap.css' %}">
+
+<section>
+    <a href="{% url 'agregarInsumo' %}" class="btn-primary">Agregar Insumo</a>
+
+</section>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">PRECIO</th>
+            <th scope="col">DESCRIPCION</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">OPCIONES</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for aux in listaInsumos %}
+            <tr>
+                <th scope="row" ></th>  
+                <td>{{aux.nombre}}</td>
+                <td>{{aux.precio}}</td>
+                <td>{{aux.descripcion}}</td>
+                <td>{{aux.stock}}</td>
+                <td>
+                    <button type="button" class="btn btn-light"><a href="{% url 'modificarInsumo' aux.id %}" >Modificar</a></button>
+                    <button type="button" class="btn btn-light"><a href="{% url 'eliminarInsumo' aux.id %}" >Eliminar</a></button>
+                </td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

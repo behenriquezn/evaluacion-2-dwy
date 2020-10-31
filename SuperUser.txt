@@ -1,0 +1,3 @@
+Usuario: admin
+email: admin@amiun.cl
+Contraseña: admin123
